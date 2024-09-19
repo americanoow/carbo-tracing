@@ -76,3 +76,4 @@ export default function Welcome() {
 
   );
 }
+const styles = StyleSheet.create({ background: { flex: 1, }, container: { flex: 1, }, header: { position: 'absolute', top: 50, width: '100%', alignItems: 'center', }, nomeAppText: { fontSize: 48, fontWeight: 'bold', color: '#000000', alignItems: 'center', }, nomeAppText: { fontSize: 48, fontWeight: 'bold', color: '#000000', alignItems: 'center', }, logo: { width: 200, height: 200, marginTop: 10, margin: 40, justifyContent: 'space-around', }, textoMotivador: { fontSize: 30, }, signUp: { position:'absolut', backgroundColor: '#D9D9D9', padding: 8, width: '60%', height: '10%', alignItems: 'center', justifyContent: 'center', bottom: '-10%', }, signUpText: { fontSize: 25, fontWeight: 'bold', }, anteButton: { bottom: '-33%', fontSize: 24, }, buttonText: { fontSize: 20, bottom: '-350%', fontWeight: 'bold', textAlign: 'center', }, buttonText2: { fontSize: 20, bottom: '-370%', fontWeight: 'bold', textAlign: 'center', }, });

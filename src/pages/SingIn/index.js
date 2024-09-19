@@ -55,3 +55,4 @@ export default function SingIn() {
         </View>
     );
 }
+const styles = StyleSheet.create({ container: { flex: 1, backgroundColor: '#AEC7DD', }, message: { alignSelf: 'center', }, containerHeader: { marginTop: '14%', marginBottom: '8%', paddingLeft: '5%', }, message: { fontSize: 28, fontWeight: 'bold', color: '#FFF', }, containerForm: { backgroundColor: 'white', flex: 1, paddingLeft: '5%', paddingRight: '5%', }, title: { fontSize: 20, marginTop: 28, }, input: { borderBottomWidth: 1, height: 40, marginBottom: 12, fontSize: 16, }, button: { backgroundColor: '#AEC7DD', width: '100%', borderRadius: 4, paddingVertical: 8, marginTop: 14, justifyContent: 'center', alignItems: 'center', }, buttonText: { color: 'black', fontSize: 18, fontWeight: 'bold', }, buttonRegister: { marginTop: 14, alignSelf: 'center', }, loginText: { color: '#a1a1a1', alignSelf: 'center' } });
