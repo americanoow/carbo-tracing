@@ -4,7 +4,7 @@ import Welcome from '../pages/Welcome'
 import SingIn from '../pages/SingIn'
 import Login from '../pages/Login'
 
-
+//dudadrigues
 
 const Stack = createNativeStackNavigator();
 
