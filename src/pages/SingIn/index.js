@@ -13,7 +13,7 @@ export default function SignIn({ navigation }) {
     // Função para registrar o usuário
     const handleRegister = async () => {
         // Exibe um alerta com os dados antes de enviar para o Supabase
-        Alert.alert("Dados do Registro", `Nome: ${nome}\nData de Nascimento: ${dataNascimento}\nEmail: ${email}\nSenha: ${senha}`);
+        Alert.alert("Dados do Registro", Nome: ${nome}\nData de Nascimento: ${dataNascimento}\nEmail: ${email}\nSenha: ${senha});
 
         // Insere os dados no Supabase
         const { data, error } = await supabase
