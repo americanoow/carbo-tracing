@@ -1,58 +1,51 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert, SafeAreaView } from "react-native";
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert } from "react-native";
 import { supabase } from "../../../supabaseClient";
 
-export default function SignIn() {
-  // Estados para armazenar dados do formulário
-  const [nome, setNome] = useState("");
-  const [dataNascimento, setDataNascimento] = useState("");
+export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
 
-  // Função para registrar o usuário
-  const handleRegister = async () => {
-    const { error } = await supabase
-      .from("users")
-      .insert([{ nome, data_nascimento: dataNascimento, email, senha }]);
+  const handleLogin = async () => {
+    try {
+      // Autentica o usuário usando o Supabase Auth
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: email,
+        password: senha,
+      });
 
-    if (error) {
-      Alert.alert("Erro ao registrar", error.message);
-    } else {
-      Alert.alert("Sucesso", "Cadastro concluído com sucesso!");
-      // Limpar os campos após o cadastro
-      setNome("");
-      setDataNascimento("");
-      setEmail("");
-      setSenha("");
+      if (error) {
+        if (error.message === "Email not confirmed") {
+          Alert.alert(
+            "Erro",
+            "Você precisa confirmar o e-mail antes de fazer login. Verifique sua caixa de entrada."
+          );
+        } else {
+          Alert.alert("Erro", error.message);
+        }
+        return;
+      }
+
+      if (data.session) {
+        Alert.alert("Sucesso", "Login realizado com sucesso!");
+        // Redireciona para a próxima tela
+        navigation.navigate("Home");
+      }
+    } catch (err) {
+      Alert.alert("Erro inesperado", err.message);
     }
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.containerHeader}>
-        <Text style={styles.message}>Cadastre-se</Text>
+        <Text style={styles.message}>Login</Text>
       </View>
 
       <View style={styles.containerForm}>
-        <Text style={styles.title}>Nome completo:</Text>
-        <TextInput
-          placeholder="Insira aqui seu nome completo"
-          style={styles.input}
-          value={nome}
-          onChangeText={setNome}
-        />
-
-        <Text style={styles.title}>Data de nascimento:</Text>
-        <TextInput
-          placeholder="Insira aqui sua data de nascimento"
-          style={styles.input}
-          value={dataNascimento}
-          onChangeText={setDataNascimento}
-        />
-
         <Text style={styles.title}>Email:</Text>
         <TextInput
-          placeholder="Insira aqui seu email"
+          placeholder="Insira seu email"
           style={styles.input}
           value={email}
           onChangeText={setEmail}
@@ -60,18 +53,22 @@ export default function SignIn() {
 
         <Text style={styles.title}>Senha:</Text>
         <TextInput
-          placeholder="Insira aqui sua senha"
+          placeholder="Insira sua senha"
           style={styles.input}
           value={senha}
           onChangeText={setSenha}
           secureTextEntry
         />
 
-        <TouchableOpacity style={styles.button} onPress={handleRegister}>
-          <Text style={styles.buttonText}>Registrar</Text>
+        <TouchableOpacity style={styles.button} onPress={handleLogin}>
+          <Text style={styles.buttonText}>Entrar</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => navigation.navigate("SignIn")}>
+          <Text style={styles.registerText}>Não tem uma conta? Registre-se</Text>
         </TouchableOpacity>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -92,4 +89,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   buttonText: { color: "black", fontSize: 18, fontWeight: "bold" },
+  registerText: { color: "#a1a1a1", alignSelf: "center", marginTop: 20 },
 });

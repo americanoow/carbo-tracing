@@ -1,10 +1,11 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 import Welcome from '../pages/Welcome'
-import SingIn from '../pages/SingIn'
-import Login from '../pages/Login'
+import SignIn from  '../pages/SignIn'
+import Login from   '../pages/Login'
+import Home from    '../pages/Home'
 
-//dudadrigues
+
 
 const Stack = createNativeStackNavigator();
 
@@ -18,8 +19,8 @@ export default function Routes(){
              />
 
             <Stack.Screen
-                name="SingIn"
-                component={SingIn}
+                name="SignIn"
+                component={SignIn}
                 options={{ headerShown: false }}
              />
 
@@ -28,6 +29,14 @@ export default function Routes(){
                 component={Login}
                 options={{ headerShown: false }}
              />
+
+             <Stack.Screen
+             name="Home"
+             component={Home}
+             options={{headerShown: false}}
+             />
+
+
         </Stack.Navigator>
     )
 }

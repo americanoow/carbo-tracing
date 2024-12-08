@@ -13,6 +13,8 @@ import {
     import { useNavigation } from '@react-navigation/native';
 
 
+
+
 export default function Welcome() {
 
     const navigation = useNavigation();
@@ -51,29 +53,37 @@ export default function Welcome() {
         
         <TouchableOpacity 
         style={styles.signUp}
-        onPress={ () => navigation.navigate('SingIn')}
+        onPress={ () => navigation.navigate('SignIn')}
         >
           <Text style={styles.signUpText}>SIGN UP</Text>
         </TouchableOpacity>
         
 
+            
 
+          <Text style={styles.buttonText}>Se você já tem uma conta</Text>
+          <Text 
+          style={styles.buttonText2}
+          onPress={ () => navigation.navigate('Login')}
+          >CLIQUE AQUI</Text>
         
         
-        
-
-        <Animatable.View animation="fadeInUp">
-        <TouchableOpacity 
-        style={styles.cliqueAqui}
-        onPress={ () => navigation.navigate('Login')}  
-      >
-        <Text style={styles.buttonText}>Se você já tem uma conta</Text>
-          <Text style={styles.buttonText2}>CLIQUE AQUI</Text>
-        </TouchableOpacity>
-        </Animatable.View>
       </View>
     </ImageBackground>
 
   );
 }
-const styles = StyleSheet.create({ background: { flex: 1, }, container: { flex: 1, }, header: { position: 'absolute', top: 50, width: '100%', alignItems: 'center', }, nomeAppText: { fontSize: 48, fontWeight: 'bold', color: '#000000', alignItems: 'center', }, nomeAppText: { fontSize: 48, fontWeight: 'bold', color: '#000000', alignItems: 'center', }, logo: { width: 200, height: 200, marginTop: 10, margin: 40, justifyContent: 'space-around', }, textoMotivador: { fontSize: 30, }, signUp: { position:'absolut', backgroundColor: '#D9D9D9', padding: 8, width: '60%', height: '10%', alignItems: 'center', justifyContent: 'center', bottom: '-10%', }, signUpText: { fontSize: 25, fontWeight: 'bold', }, anteButton: { bottom: '-33%', fontSize: 24, }, buttonText: { fontSize: 20, bottom: '-350%', fontWeight: 'bold', textAlign: 'center', }, buttonText2: { fontSize: 20, bottom: '-370%', fontWeight: 'bold', textAlign: 'center', }, });
+const styles = StyleSheet.create({ background: { flex: 1, },
+   container: { flex: 1, },
+        header: { position: 'absolute', top: 50, width: '100%', alignItems: 'center', },
+        nomeAppText: { fontSize: 48, fontWeight: 'bold', color: '#000000', alignItems: ' center', },
+        nomeAppText2: { fontSize: 48, fontWeight: 'bold', color: '#000000', alignItems: 'center', },
+        logo: { width: 200, height: 200, marginTop: 10, margin: 40, justifyContent: 'space-around', },
+        textoMotivador: { fontSize: 30, },
+        signUp: { position:'absolut', backgroundColor: '#D9D9D9', padding: 8, width: '60%', height: '10%', alignItems: 'center', justifyContent: 'center', bottom: '-10%', },
+        signUpText: { fontSize: 25, fontWeight: 'bold', }, anteButton: { bottom: '-33%', fontSize: 24, },
+        buttonText: { fontSize: 20, bottom: '-29%', fontWeight: 'bold', textAlign: 'center', },
+        buttonText2: { fontSize: 20, bottom: '-30%', fontWeight: 'bold', textAlign: 'center', }, 
+        
+      
+      });

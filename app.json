@@ -1,5 +1,6 @@
 {
   "expo": {
+    "scheme": "com.carbotracing",
     "name": "carbo-tracing",
     "slug": "carbo-tracing",
     "version": "1.0.0",
@@ -17,11 +18,17 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#ffffff",
+        "redirectUri": "https://auth.expo.io/@carbotracing/carbo-tracing"
       }
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "2eb6448c-70b5-40cc-b4c3-10ff7ae4070c"
+      }
     }
   }
 }
