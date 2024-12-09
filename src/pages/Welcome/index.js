@@ -29,6 +29,8 @@ export default function Welcome() {
         
       </View>
 
+
+      
       <View style={styles.header}>
         <Animatable.View animation="fadeInUp">
         <Text style={styles.nomeAppText}>Carbo</Text>

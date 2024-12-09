@@ -1,6 +1,7 @@
 {
   "expo": {
     "scheme": "com.carbotracing",
+    "platforms": ["android"],
     "name": "carbo-tracing",
     "slug": "carbo-tracing",
     "version": "1.0.0",
@@ -20,8 +21,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff",
         "redirectUri": "https://auth.expo.io/@carbotracing/carbo-tracing"
-      }
-    },
+        },
     "web": {
       "favicon": "./assets/favicon.png"
     },
@@ -31,4 +31,5 @@
       }
     }
   }
+}
 }

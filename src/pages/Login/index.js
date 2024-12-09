@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert } from "react-native";
 import { supabase } from "../../../supabaseClient";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
